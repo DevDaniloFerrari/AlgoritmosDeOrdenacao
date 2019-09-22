@@ -4,6 +4,7 @@ import sorting.interfaces.Sort;
 
 public class BubbleSort implements Sort {
 
+    @Override
     public int[] ordenar(int[] elementos){
         int tamanhoDoVetor = elementos.length;
 
