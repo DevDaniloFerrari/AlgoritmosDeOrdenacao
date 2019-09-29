@@ -3,10 +3,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.testng.Assert;
-import sorting.algorithms.BubbleSort;
-import sorting.algorithms.CountSort;
-import sorting.algorithms.HeapSort;
-import sorting.algorithms.InsertionSort;
+import sorting.algorithms.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class SortTests {
@@ -18,6 +15,7 @@ public class SortTests {
     InsertionSort insertionSort;
     HeapSort heapSort;
     CountSort countSort;
+    SelectionSort selectionSort;
 
     @BeforeAll
     public void inicializarTest(){
@@ -25,6 +23,7 @@ public class SortTests {
         insertionSort = new InsertionSort();
         heapSort = new HeapSort();
         countSort = new CountSort();
+        selectionSort = new SelectionSort();
     }
 
     @Test
@@ -45,5 +44,10 @@ public class SortTests {
     @Test
     public void countSortTest(){
         Assert.assertEquals(elementosOrdenados, countSort.ordenar(elementosDesordenados));
+    }
+
+    @Test
+    public void selectionSortTest(){
+        Assert.assertEquals(elementosOrdenados, selectionSort.ordenar(elementosDesordenados));
     }
 }
