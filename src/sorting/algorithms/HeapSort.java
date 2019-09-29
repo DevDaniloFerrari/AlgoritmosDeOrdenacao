@@ -19,13 +19,13 @@ public class HeapSort implements Sort{
         return elementos;
     }
 
-    public void montarArvoreHeap(int[] elementos) {
+    private void montarArvoreHeap(int[] elementos) {
         for (int posicao = (elementos.length - 1) / 2; posicao >= 0; posicao--) {
             ordernarArvore(elementos, posicao, elementos.length);
         }
     }
 
-    public void ordernarArvore(int[]elementos, int posicao, int tamanhoDoVetor) {
+    private void ordernarArvore(int[]elementos, int posicao, int tamanhoDoVetor) {
         int indiceFilhoUm = 2 * posicao + 1;
         int indifceFilhoDois = indiceFilhoUm + 1;
 
