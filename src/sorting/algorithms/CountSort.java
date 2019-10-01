@@ -27,7 +27,7 @@ public class CountSort implements Sort {
 
         int[] vetorOrdenado = new int[tamanhoDoVetorPrincipal+1];
 
-        for(int i=1; i < tamanhoDoVetorPrincipal+1; i++){
+        for(int i=1; i < tamanhoDoVetorPrincipal; i++){
             vetorOrdenado[vetorAuxiliar[elementos[i-1]]] = elementos[i-1];
             vetorAuxiliar[elementos[i-1]]++;
         }

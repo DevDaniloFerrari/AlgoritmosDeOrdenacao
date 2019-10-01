@@ -1,8 +1,15 @@
 package sorting.algorithms;
 
-public class MergeSort {
+import sorting.interfaces.Sort;
 
-    public int[] ordenar(int[] elementos, int[] vetorAuxiliar, int inicio, int fim) {
+public class MergeSort implements Sort {
+
+    public int[] ordenar(int[] elementos){
+        int[] vetorAuxiliar = new int[elementos.length];
+        return ordenar(elementos, vetorAuxiliar, 0, elementos.length-1);
+    }
+
+    private int[] ordenar(int[] elementos, int[] vetorAuxiliar, int inicio, int fim) {
         if (inicio < fim) {
             int meio = (inicio + fim) / 2;
             ordenar(elementos, vetorAuxiliar, inicio, meio);

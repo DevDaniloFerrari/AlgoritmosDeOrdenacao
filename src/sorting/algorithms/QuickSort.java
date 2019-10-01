@@ -2,9 +2,14 @@ package sorting.algorithms;
 
 import sorting.interfaces.Sort;
 
-public class QuickSort {
+public class QuickSort implements Sort{
 
-    public int[] ordenar(int[] elementos, int esquerda, int direita) {
+    @Override
+    public int[] ordenar(int[] elementos) {
+        return ordenar(elementos, 0, elementos.length-1);
+    }
+
+    private int[] ordenar(int[] elementos, int esquerda, int direita) {
         if (esquerda < direita) {
             int auxiliar = separarElementos(elementos, esquerda, direita);
             ordenar(elementos, esquerda, auxiliar-1);
@@ -32,7 +37,7 @@ public class QuickSort {
         return j;
     }
 
-    public static void trocarElementos(int elementos[], int i, int j) {
+    private static void trocarElementos(int elementos[], int i, int j) {
         int aux = elementos[i];
         elementos[i] = elementos[j];
         elementos[j] = aux;
