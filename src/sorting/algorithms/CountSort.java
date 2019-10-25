@@ -8,7 +8,7 @@ public class CountSort implements Sort {
         int tamanhoDoVetorPrincipal = elementos.length;
         int maiorElementoDoVetorPrincipal=elementos[0];
 
-        for(int i=1; i < tamanhoDoVetorPrincipal-1; i++){
+        for(int i=0; i < tamanhoDoVetorPrincipal; i++){
             if(elementos[i]>maiorElementoDoVetorPrincipal)
                 maiorElementoDoVetorPrincipal = elementos[i];
         }
@@ -21,19 +21,20 @@ public class CountSort implements Sort {
             vetorAuxiliar[elementos[i]]++;
         }
 
-        for(int i=1; i < tamanhoDoVetorAuxiliar+1; i++){
-            vetorAuxiliar[i] = vetorAuxiliar[i-1] + vetorAuxiliar[i];
-        }
+        int[] vetorOrdenado = new int[tamanhoDoVetorPrincipal];
 
-        int[] vetorOrdenado = new int[tamanhoDoVetorPrincipal+1];
+        int posicao = 0;
 
-        for(int i=1; i < tamanhoDoVetorPrincipal; i++){
-            vetorOrdenado[vetorAuxiliar[elementos[i-1]]] = elementos[i-1];
-            vetorAuxiliar[elementos[i-1]]++;
+        for(int i=0; posicao < tamanhoDoVetorPrincipal; i++){
+            for(int n = vetorAuxiliar[i]; n > 0; n--){
+                vetorOrdenado[posicao] = i;
+                posicao++;
+            }
+
         }
 
         for(int i=0; i < tamanhoDoVetorPrincipal; i++){
-            elementos[i] = vetorOrdenado[i+1];
+            elementos[i] = vetorOrdenado[i];
         }
 
         return elementos;
