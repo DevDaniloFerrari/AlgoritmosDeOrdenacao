@@ -1,8 +1,8 @@
 package sorting.algorithms;
 
-import sorting.interfaces.Sort;
+import sorting.interfaces.ISort;
 
-public class MergeSort implements Sort {
+public class MergeSort implements ISort {
 
     public int[] ordenar(int[] elementos){
         int[] vetorAuxiliar = new int[elementos.length];

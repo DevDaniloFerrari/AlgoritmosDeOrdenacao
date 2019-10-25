@@ -1,8 +1,8 @@
 package sorting.algorithms;
 
-import sorting.interfaces.Sort;
+import sorting.interfaces.ISort;
 
-public class CountSort implements Sort {
+public class CountSort implements ISort {
     @Override
     public int[] ordenar(int[] elementos) {
         int tamanhoDoVetorPrincipal = elementos.length;

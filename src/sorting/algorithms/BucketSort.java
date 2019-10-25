@@ -1,12 +1,12 @@
 package sorting.algorithms;
 
-import sorting.interfaces.Sort;
+import sorting.interfaces.ISort;
 
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BucketSort implements Sort {
+public class BucketSort implements ISort {
 
     @Override
     public int[] ordenar(int[] elementos) {

@@ -1,12 +1,8 @@
 package sorting.algorithms;
 
-import sorting.interfaces.Sort;
+import sorting.interfaces.ISort;
 
-import java.util.Arrays;
-import java.io.*;
-import java.util.*;
-
-public class RadixSort implements Sort {
+public class RadixSort implements ISort {
 
     CountSort countSort = new CountSort();
 

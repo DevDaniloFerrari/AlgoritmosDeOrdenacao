@@ -1,8 +1,8 @@
 package sorting.algorithms;
 
-import sorting.interfaces.Sort;
+import sorting.interfaces.ISort;
 
-public class InsertionSort implements Sort {
+public class InsertionSort implements ISort {
 
     @Override
     public int[] ordenar(int[] elementos) {

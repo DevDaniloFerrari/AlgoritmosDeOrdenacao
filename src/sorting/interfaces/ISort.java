@@ -1,5 +1,5 @@
 package sorting.interfaces;
 
-public interface Sort {
+public interface ISort {
     public int[] ordenar(int[] elementos);
 }
