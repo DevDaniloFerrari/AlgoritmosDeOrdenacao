@@ -36,14 +36,16 @@ public class Report {
         Instant start = Instant.now();
 
         for (int i = 0; i < numberOfRepetitions; i++) {
+            System.out.println("----------------------------");
             System.out.println(i + 1 + "º execution!");
+            System.out.println("----------------------------\n");
             executionData = this.generateExecutionDate();
             run(executionData);
         }
 
         Instant finish = Instant.now();
 
-        long totalDurationTime = Duration.between(start,finish).toMinutes();
+        long totalDurationTime = Duration.between(start, finish).toMinutes();
 
         String textResult = "\n\n*** EXECUTION RESULT ***\n\n";
 
@@ -57,7 +59,7 @@ public class Report {
         textResult += "BucketSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getBucketSortResult()).print() + "\n";
         textResult += "RadixSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getRadixSortResult()).print() + "\n";
 
-        textResult += "Total duration time: " + totalDurationTime + " minutes";
+        textResult += "Total duration time: " + totalDurationTime + " minutes\n";
 
         return textResult;
     }
