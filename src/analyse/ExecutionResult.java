@@ -2,13 +2,13 @@ package analyse;
 
 public class ExecutionResult {
 
-    private double OneHundred;
-    private double OneThousand;
-    private double TenThousand;
-    private double HundredThousand;
-    private double OneMillion;
+    private long OneHundred;
+    private long OneThousand;
+    private long TenThousand;
+    private long HundredThousand;
+    private long OneMillion;
 
-    public ExecutionResult(double oneHundred, double oneThousand, double tenThousand, double hundredThousand, double oneMillion) {
+    public ExecutionResult(long oneHundred, long oneThousand, long tenThousand, long hundredThousand, long oneMillion) {
         OneHundred = oneHundred;
         OneThousand = oneThousand;
         TenThousand = tenThousand;
@@ -16,7 +16,31 @@ public class ExecutionResult {
         OneMillion = oneMillion;
     }
 
-    public String print(){
-        return "";
+    public String print() {
+        return "OneHundred: " + OneHundred + " ms\n" +
+                "OneThousand: " + OneThousand + " ms\n" +
+                "TenThousand: " + TenThousand + " ms\n" +
+                "HundredThousand: " + HundredThousand + " ms\n" +
+                "OneMillion: " + OneMillion + " ms\n";
+    }
+
+    public double getOneHundred() {
+        return OneHundred;
+    }
+
+    public double getOneThousand() {
+        return OneThousand;
+    }
+
+    public double getTenThousand() {
+        return TenThousand;
+    }
+
+    public double getHundredThousand() {
+        return HundredThousand;
+    }
+
+    public double getOneMillion() {
+        return OneMillion;
     }
 }

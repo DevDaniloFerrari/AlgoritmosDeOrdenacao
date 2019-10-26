@@ -3,45 +3,86 @@ package analyse;
 import sorting.algorithms.*;
 import sorting.interfaces.ISort;
 
+import java.time.Duration;
+import java.time.Instant;
+
 public class Report {
     ExecutionData executionData;
+    FinalResult finalResult;
 
-    public String run(){
-        BubbleSort bubbleSort = new BubbleSort();
-        InsertionSort insertionSort = new InsertionSort();
-        HeapSort heapSort = new HeapSort();
-        CountSort countSort = new CountSort();
-        SelectionSort selectionSort = new SelectionSort();
-        QuickSort quickSort = new QuickSort();
-        MergeSort mergeSort = new MergeSort();
-        BucketSort bucketSort = new BucketSort();
-        RadixSort radixSort = new RadixSort();
+    BubbleSort bubbleSort;
+    InsertionSort insertionSort;
+    HeapSort heapSort;
+    CountSort countSort;
+    SelectionSort selectionSort;
+    QuickSort quickSort;
+    MergeSort mergeSort;
+    BucketSort bucketSort;
+    RadixSort radixSort;
 
-        executionData = this.generateExecutionDate();
+    public String run(int numberOfRepetitions) {
+        bubbleSort = new BubbleSort();
+        insertionSort = new InsertionSort();
+        heapSort = new HeapSort();
+        countSort = new CountSort();
+        selectionSort = new SelectionSort();
+        quickSort = new QuickSort();
+        mergeSort = new MergeSort();
+        bucketSort = new BucketSort();
+        radixSort = new RadixSort();
 
-        String finalResult = run(bubbleSort) + "\n" +
-                run(insertionSort) + "\n" +
-                run(heapSort) + "\n" +
-                run(countSort) + "\n" +
-                run(selectionSort) + "\n" +
-                run(quickSort) + "\n" +
-                run(mergeSort) + "\n" +
-                run(bucketSort) + "\n" +
-                run(radixSort);
+        finalResult = new FinalResult();
 
+        Instant start = Instant.now();
 
-        return finalResult;
+        for (int i = 0; i < numberOfRepetitions; i++) {
+            System.out.println(i + 1 + "º execution!");
+            executionData = this.generateExecutionDate();
+            run(executionData);
+        }
+
+        Instant finish = Instant.now();
+
+        long totalDurationTime = Duration.between(start,finish).toMinutes();
+
+        String textResult = "\n\n*** EXECUTION RESULT ***\n\n";
+
+        textResult += "BubbleSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getBubbleSortResult()).print() + "\n";
+        textResult += "InsertionSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getInsertionSortResult()).print() + "\n";
+        textResult += "HeapSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getHeapSortResult()).print() + "\n";
+        textResult += "CountSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getCountSortResult()).print() + "\n";
+        textResult += "SelectionSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getSelectionSortResult()).print() + "\n";
+        textResult += "QuickSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getQuickSortResult()).print() + "\n";
+        textResult += "MergeSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getMergeSortResult()).print() + "\n";
+        textResult += "BucketSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getBucketSortResult()).print() + "\n";
+        textResult += "RadixSort \n--------------\n" + finalResult.generateAverageResult(finalResult.getRadixSortResult()).print() + "\n";
+
+        textResult += "Total duration time: " + totalDurationTime + " minutes";
+
+        return textResult;
     }
 
-    private String run(ISort sortAlgorithm){
+    private void run(ExecutionData executionData) {
+        finalResult.addBubbleSortResult(run(bubbleSort));
+        finalResult.addInsertionSortResult(run(insertionSort));
+        finalResult.addHeapSortResult(run(heapSort));
+        finalResult.addCountSortResult(run(countSort));
+        finalResult.addSelectionSortResult(run(selectionSort));
+        finalResult.addQuickSortResult(run(quickSort));
+        finalResult.addMergeSortResult(run(mergeSort));
+        finalResult.addBucketSortResult(run(bucketSort));
+        finalResult.addRadixSortResult(run(radixSort));
+    }
+
+    private ExecutionResult run(ISort sortAlgorithm) {
+        System.out.println("Running: " + sortAlgorithm.getClass().getSimpleName());
         String result;
         Timer timer = new Timer(sortAlgorithm);
         ExecutionResult executionResult = timer.execute(executionData);
-        result = sortAlgorithm.getClass().getSimpleName() + "\n" + executionResult.print();
-        return result;
+        return executionResult;
     }
 
-    private ExecutionData generateExecutionDate(){
+    private ExecutionData generateExecutionDate() {
         ExecutionData executionData = new ExecutionData();
         ArrayGenerator arrayGenerator = new ArrayGenerator();
 

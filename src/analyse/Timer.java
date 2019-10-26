@@ -2,7 +2,8 @@ package analyse;
 
 import sorting.interfaces.ISort;
 
-import java.util.Date;
+import java.time.Duration;
+import java.time.Instant;
 
 public class Timer {
 
@@ -22,15 +23,18 @@ public class Timer {
         );
     }
 
-    private double calculate(int[] elements){
-        Date date = new Date();
-        double initialExecution = date.getTime();
+    private long calculate(int[] elements){
+        System.out.println(" - With: " + elements.length + " elements");
+
+        Instant start = Instant.now();
 
         _sortAlgorithm.ordenar(elements);
 
-        double finalExecution = date.getTime();
+        Instant finish = Instant.now();
 
-        return finalExecution - initialExecution;
+        long timeExecution = Duration.between(start,finish).toMillis();
+
+        return timeExecution;
     }
 
 }
