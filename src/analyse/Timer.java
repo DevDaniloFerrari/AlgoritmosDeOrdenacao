@@ -34,6 +34,8 @@ public class Timer {
 
         long timeExecution = Duration.between(start,finish).toMillis();
 
+        System.out.println(" - done!");
+
         return timeExecution;
     }
 
