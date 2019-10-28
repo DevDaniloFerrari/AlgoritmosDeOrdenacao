@@ -2,44 +2,64 @@ package sorting.algorithms;
 
 import sorting.interfaces.ISort;
 
-import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 
 public class BucketSort implements ISort {
 
-    @Override
-    public int[] ordenar(int[] elementos) {
+        InsertionSort insertionSort = new InsertionSort();
 
-        int maiorNumeroVetor = 0;
+        @Override
+        public int[] ordenar(int[] elementos){
 
-        for(int i = 0; i < elementos.length; i++) {
-            if (elementos[i] > maiorNumeroVetor) {
-                maiorNumeroVetor = elementos[i];
+            int maiorValor = 0;
+
+            for (int i = 0; i < elementos.length; i++) {
+                if (elementos[i] > maiorValor) {
+                    maiorValor = elementos[i];
+                }
             }
-        }
 
-        List<Integer>[] baldes = new List[maiorNumeroVetor];
-        for(int i = 0; i < maiorNumeroVetor; i++){
-            baldes[i] = new LinkedList<>();
-        }
+            int numBaldes = maiorValor/5;
 
-        for(int numeroOrdenado : elementos){
-            baldes[hash(numeroOrdenado)].add(numeroOrdenado);
-        }
-        for(List<Integer> balde : baldes){
-            Collections.sort(balde);
-        }
-        int i = 0;
-        for(List<Integer> balde : baldes){
-            for(int numeroOrdenado : balde){
-                elementos[i++] = numeroOrdenado;
+            LinkedList[] B = new LinkedList[numBaldes];
+
+            for (int i = 0; i < numBaldes; i++){
+                B[i] = new LinkedList<Integer>();
             }
-        }
-        return elementos;
-    }
 
-    private static int hash(int num){
-        return num/10;
-    }
+            for (int i = 0; i < elementos.length; i++) {
+                int j = numBaldes-1;
+                while (true){
+                    if (j < 0){
+                        break;
+                    }
+                    if (elementos[i] >= (j*5)) {
+                        B[j].add(elementos[i]);
+                        break;
+                    }
+                    j--;
+                }
+            }
+
+            int indice = 0;
+            for (int i = 0; i < numBaldes; i++){
+
+                int[] aux = new int[B[i].size()];
+
+                for (int j = 0; j < aux.length; j++){
+                    aux[j] = (Integer)B[i].get(j);
+                }
+
+                 insertionSort.ordenar(aux);
+
+                for (int j = 0; j < aux.length; j++, indice++){
+                     elementos[indice] = aux[j];
+                }
+
+            }
+            return elementos;
+
+        }
+
+
 }
