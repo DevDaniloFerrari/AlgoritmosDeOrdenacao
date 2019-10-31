@@ -2,6 +2,7 @@ package domain;
 
 import analyse.Report;
 import resources.config.ReadConfig;
+import sorting.algorithms.BubbleSort;
 
 import java.io.File;
 import java.io.FileNotFoundException;
