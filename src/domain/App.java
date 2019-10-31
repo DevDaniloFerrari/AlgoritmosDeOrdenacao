@@ -15,7 +15,7 @@ public class App {
         Report report = new Report();
 
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDateTime localDateTime;
 
         ReadConfig readConfig = new ReadConfig();
 
@@ -37,12 +37,14 @@ public class App {
 
         int numberOfRepetitions = Integer.parseInt(readConfig.key("numberOfRepetitions"));
 
+        localDateTime = LocalDateTime.now();
         System.out.println("**********************************************");
         System.out.println("    Started at: " + dateTimeFormatter.format(localDateTime));
         System.out.println("**********************************************");
 
         System.out.println(report.run(numberOfRepetitions));
 
+        localDateTime = LocalDateTime.now();
         System.out.println("**********************************************");
         System.out.println("    Finished at: " + dateTimeFormatter.format(localDateTime));
         System.out.println("**********************************************");
