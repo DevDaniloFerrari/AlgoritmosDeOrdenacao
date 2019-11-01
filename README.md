@@ -65,6 +65,16 @@
 
 <h1>Resultados</h1>
 
+<h3>Máquina utilizada</h3>
+
+**Processador:** AMD A4-3305M 1.9 GHz<br>
+**Memória:** 2 memórias de 2 GB DDR3<br>
+**Placa de Vídeo:** AMD Radeon HD 6480G<br>
+
+-------------------------------------------
+
+**Tempo total de execução:** 50,6 horas
+
 **Vetor de 100**<br>
 ![vetor100](https://user-images.githubusercontent.com/40414119/68000188-d3e95680-fc3d-11e9-946c-bc51c78bbb16.png)
 
