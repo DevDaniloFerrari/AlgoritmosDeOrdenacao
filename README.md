@@ -30,7 +30,7 @@
 
 <h2> SelectionSort </h2>
 
->É um algoritmo que ordena por seleção, sempre passando o menor vetor para a o início.
+>É um algoritmo que ordena por seleção, sempre passando o menor valor para a o início.
 * Pior caso: O(n^2)
 * Caso médio: O(n^2)
 * Melhor caso: O(n^2)
