@@ -65,6 +65,19 @@
 
 <h1>Resultados</h1>
 
-Inline-style: 
-![alt text "Vetor de 100")
+**Vetor de 100**<br>
+![vetor100](https://user-images.githubusercontent.com/40414119/68000188-d3e95680-fc3d-11e9-946c-bc51c78bbb16.png)
+
+**Vetor de 1000**<br>
+![vetor1000](https://user-images.githubusercontent.com/40414119/68000189-d3e95680-fc3d-11e9-92f7-11800e1369a5.png)
+
+**Vetor de 10000**<br>
+![vetor10000](https://user-images.githubusercontent.com/40414119/68000190-d3e95680-fc3d-11e9-9e60-90a9183358aa.png)
+
+**Vetor de 100000**<br>
+![vetor100000](https://user-images.githubusercontent.com/40414119/68000191-d3e95680-fc3d-11e9-84d9-9e96165b976c.png)
+
+**Vetor de 1000000**<br>
+![vetor1000000](https://user-images.githubusercontent.com/40414119/68000192-d481ed00-fc3d-11e9-84ac-2acab0743e31.png)
+
 
