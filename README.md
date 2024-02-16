@@ -56,7 +56,7 @@
 * Caso médio: O(n + k)
 * Melhor caso: O(n + k)
 
-<h2> BucketSort </h2>
+<h2> Radixsort </h2>
 
 >O Radixsort ordena itens que estão identificados por índices únicos dos dígitos menos significativos até os mais significativos.
 * Pior caso: O(n^2)
